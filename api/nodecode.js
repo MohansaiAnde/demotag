@@ -443,7 +443,7 @@ app.post('/save-imocha-results', async (req, res) => {
 // Route 4: Fetch test results and reports (iMocha API)
 async function getCompletedTestAttempts(testId) {
   try {
-    const startDateTime = new Date('2024-09-23T18:00:00Z').toISOString();
+    const startDateTime = new Date('2024-09-26T16:00:00Z').toISOString();
     const endDateTime = new Date().toISOString();
 
     const requestBody = { testId, StartDateTime: startDateTime, EndDateTime: endDateTime };
