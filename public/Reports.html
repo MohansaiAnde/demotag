@@ -338,7 +338,7 @@ body, html {
     // Fetch the total resume count
     async function fetchResumeCount() {
         try {
-            const response = await fetch('https://bulk.vercel.app/api/resume-count');
+            const response = await fetch('https://demotag.vercel.app/api/resume-count');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -356,7 +356,7 @@ body, html {
     // Fetch shortlisted count
     async function fetchShortlistedCount() {
         try {
-            const response = await fetch('https://bulk.vercel.app/shortlisted-count');
+            const response = await fetch('https://demotag.vercel.app/shortlisted-count');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -377,7 +377,7 @@ body, html {
     // Fetch rejected count
     async function fetchRejectedCount() {
         try {
-            const response = await fetch('https://bulk.vercel.app/rejected-count');
+            const response = await fetch('https://demotag.vercel.app/rejected-count');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -410,7 +410,7 @@ body, html {
 	
 	document.getElementById('imochaTestResults').addEventListener('click', () => {
         // Call the backend to generate the Excel file
-        fetch('https://bulk.vercel.app/download-candidate-info', {
+        fetch('https://demotag.vercel.app/download-candidate-info', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -438,7 +438,7 @@ body, html {
     });
 	document.getElementById('imochareport').addEventListener('click', () => {
         // Call the backend to generate the Excel file
-        fetch('https://bulk.vercel.app/Imocha-candidate-info', {
+        fetch('https://demotag.vercel.app/Imocha-candidate-info', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -466,7 +466,7 @@ body, html {
     });
 	document.getElementById('candidateinfo').addEventListener('click', () => {
         // Call the backend to generate the Excel file
-        fetch('https://bulk.vercel.app/candidate-info', {
+        fetch('https://demotag.vercel.app/candidate-info', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
