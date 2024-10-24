@@ -1,0 +1,123 @@
+    <div id="portal-container">
+        <div id="sidebar">
+            <div class="sidebar-menu">
+                <h2>Menu</h2>
+				  <div class="sidebar-option" data-target="interviews" data-tooltip="Interviews">
+                    <i class="fas fa-users"></i>
+                    <span>Pre-Screening</span>
+                </div>
+                
+               
+              
+                <div class="sidebar-option" data-target="jd-templates" data-tooltip="JD Templates" >
+                    <i class="fas fa-file-alt"></i>
+                    <span>JD Templates
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+                </div>
+               
+                <div class="sidebar-option" data-target="Role" data-tooltip="Role" >
+                <i class="fas fa-file-signature"></i> 
+                <span>
+                     Fullfilment 
+                     Form
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+                    
+
+
+                </div>
+                
+              
+              
+               <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" >
+               <i class="fas fa-tasks"></i><span>Assessment
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+               
+
+               
+            <div class="sidebar-option active" data-target="dashboard" data-tooltip="Dashboard" onclick="showPopup()" >
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Reports
+                   
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+                         </span>
+                </div>
+            <div id="technical-panel-option" class="sidebar-option" data-target="technical-panel" data-tooltip="Technical Panel"  >
+                <i class="fas fa-laptop-code"></i>
+                <span>Technical Panel
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+            <div class="sidebar-option logout-option" data-tooltip="Logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+            </div>
+
+
+        </div>
+</div>
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body, html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            height: 100%;
+            overflow: hidden;
+        }
+.sidebar-menu {
+    flex-grow: 1;
+}
+.sidebar-option {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    width:0px;
+}
+.chip {
+    display: inline-block;
+    margin-left: 10px; /* Adjust spacing from the Dashboard */
+    padding: 5px 10px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    background-color: grey; /* Orange color for 'Coming Soon' */
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.chip.primary {
+    background-color: grey; /* Define your primary color */
+}
+</style>

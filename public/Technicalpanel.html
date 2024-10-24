@@ -1,0 +1,148 @@
+<html>
+<head>
+<link href="tag.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<div class="sidebar-menu">
+                <h2 style="
+    margin-left: 53px;">Menu</h2>
+	<div class="sidebar-option active" data-target="dashboard" data-tooltip="Dashboard" onclick="navigateTo('Reports.html')" >
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard
+                   
+                
+                         </span>
+                </div>
+	
+	
+				  <div class="sidebar-option" data-target="interviews" data-tooltip="Interviews" onclick="navigateTo('pre-screening2.html')">
+                    <i class="fas fa-users"></i>
+                    <span>Pre-Screening</span>
+                </div>
+				 <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('ResumeVerify.html')"  >
+               <i class="fas fa-tasks"></i><span>Graduate-Trainees
+                    
+                 
+
+                    </span>
+            </div>
+				 <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('index.html')"  >
+               <i class="fas fa-tasks"></i><span>Imocha Results
+                    
+                   
+
+                    </span>
+            </div>
+               
+                
+               
+              
+                <div class="sidebar-option" data-target="jd-templates" data-tooltip="JD Templates" onclick="navigateTo('Jdtemplates.html')"  >
+                    <i class="fas fa-file-alt"></i>
+                    <span>JD Templates
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+                </div>
+               
+               
+                
+              
+              
+               <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('assessment-form-html.html')"  >
+               <i class="fas fa-tasks"></i><span>Assessment
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+               
+
+               
+            
+            <div id="technical-panel-option" class="sidebar-option" data-target="technical-panel" data-tooltip="Technical Panel"  onclick="navigateTo('Technicalpanel.html')"  >
+                <i class="fas fa-laptop-code"></i>
+                <span>Technical Panel
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+            <div class="sidebar-option logout-option" data-tooltip="Logout" onclick="navigateTo('login.html')">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+            </div>
+
+
+        </div>
+
+        <div id="technical-panel">
+                <h2>Technical Panel</h2>
+                <div class="technical-panel-grid" id="technical-profiles">
+                    <!-- Technical profile cards will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+         function navigateTo(page) {
+        window.location.href = page;
+    }
+          // Sample data for technical profiles
+          const technicalProfiles = [
+            { name: "Vardhan", l1Technical: "Available", azure: "Expert", aws: "Proficient", account: "Account A", available: true },
+            { name: "Prayanka", l1Technical: "Available", azure: "Proficient", aws: "Expert", account: "Account B", available: true },
+            { name: "SaiVamsi", l1Technical: "Available", azure: "Beginner", aws: "Proficient", account: "Account C", available: true },
+            { name: "Tarun", l1Technical: "Available", azure: "Expert", aws: "Expert", account: "Account A", available: true },
+            { name: "Sai Kishore", l1Technical: "Available", azure: "Proficient", aws: "Beginner", account: "Account B", available: true },
+            { name: "Anirban", l1Technical: "Available",  azure: "Expert", aws: "Proficient", account: "Account C", available: true },
+            { name: "Abhijit", l1Technical: "Available",  azure: "Proficient", aws: "Proficient", account: "Account A", available: true },
+            { name: "Sankara", l1Technical: "Available",  azure: "Beginner", aws: "Expert", account: "Account B", available: true },
+            { name: "Srinivas", l1Technical: "Available",  azure: "Expert", aws: "Expert", account: "Account C", available: true },
+            { name: "Mohit", l1Technical: "Available",  azure: "Proficient", aws: "Proficient", account: "Account A", available: true },
+            { name: "Rajesh", l1Technical: "Available", azure: "Expert", aws: "Beginner", account: "Account B", available: true },
+            { name: "Priya", l1Technical: "Out of office",  azure: "Proficient", aws: "Expert", account: "Account C", available: false },
+            { name: "Vikram", l1Technical: "Available",  azure: "Beginner", aws: "Proficient", account: "Account A", available: true },
+            { name: "Neha", l1Technical: "Available",  azure: "Expert", aws: "Expert", account: "Account B", available: true },
+            { name: "Arun", l1Technical: "Out of office",  azure: "Proficient", aws: "Beginner", account: "Account C", available: false },
+            { name: "Kavita", l1Technical: "Available",  azure: "Expert", aws: "Proficient", account: "Account A", available: true },
+        ];
+
+        function renderTechnicalProfiles() {
+            const profilesContainer = document.getElementById('technical-profiles');
+            profilesContainer.innerHTML = ''; // Clear existing cards
+
+            technicalProfiles.forEach(profile => {
+                const card = document.createElement('div');
+                card.className = 'technical-profile-card';
+                card.innerHTML = `
+                    <h3>${profile.name}</h3>
+                    <div class="profile-info">
+                        <span>L1 Technical:</span><span>${profile.l1Technical}</span>
+                        <span>Azure:</span><span>${profile.azure}</span>
+                        <span>AWS:</span><span>${profile.aws}</span>
+                        <span>Account:</span><span>${profile.account}</span>
+                    </div>
+                    <div class="availability ${profile.available ? 'available' : 'unavailable'}">
+                        ${profile.available ? 'Available' : 'Unavailable'}
+                    </div>
+                `;
+                profilesContainer.appendChild(card);
+            });
+        }
+
+        // Initial render
+        renderTechnicalProfiles();
+        </script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment & Feedback Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5a623;
+            --background-color: black;
+            --text-color: #333;
+            --border-color: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 325px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color:black;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab {
+            padding: 0.75rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .hidden {
+            display: none;
+        }
+        body, html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            height: 100%;
+           
+        }
+.sidebar-menu {
+    flex-grow: 1;
+}
+.sidebar-option {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    max-width: max-content;
+}
+.chip {
+    display: inline-block;
+    margin-left: 10px; /* Adjust spacing from the Dashboard */
+    padding: 5px 10px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    background-color: grey; /* Orange color for 'Coming Soon' */
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.chip.primary {
+    background-color: grey; /* Define your primary color */
+}
+    </style>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="sidebar-menu">
+
+
+                <h2 style="color: #bb86fc;margin-left: 53px;">Menu</h2>
+				 <div class="sidebar-option active" data-target="dashboard" data-tooltip="Dashboard" onclick="navigateTo('Reports.html')" >
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                   
+                   
+                </div>
+				  <div class="sidebar-option" data-target="interviews" data-tooltip="Interviews" onclick="navigateTo('pre-screening2.html')">
+                    <i class="fas fa-users"></i>
+                    <span>Pre-Screening</span>
+                </div>
+				 <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('ResumeVerify.html')"  >
+               <i class="fas fa-tasks"></i><span>Graduate-Trainees
+                    
+                 
+
+                    </span>
+            </div>
+				
+				 <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('index.html')"  >
+               <i class="fas fa-tasks"></i><span>Imocha Results
+                    
+                   
+
+                    </span>
+            </div>
+               
+                
+               
+              
+                <div class="sidebar-option" data-target="jd-templates" data-tooltip="JD Templates" onclick="navigateTo('Jdtemplates.html')"  >
+                    <i class="fas fa-file-alt"></i>
+                    <span>JD Templates
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+                </div>
+              
+                
+              
+              
+               <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('assessment-form-html.html')"  >
+               <i class="fas fa-tasks"></i><span>Assessment
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+               
+
+               
+           
+            <div id="technical-panel-option" class="sidebar-option" data-target="technical-panel" data-tooltip="Technical Panel"  onclick="navigateTo('Technicalpanel.html')"  >
+                <i class="fas fa-laptop-code"></i>
+                <span>Technical Panel
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+            <div class="sidebar-option logout-option" data-tooltip="Logout" onclick="navigateTo('login.html')">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+            </div>
+
+
+        </div>
+
+    <div class="container" style="
+    margin-top: -433px;">
+        <h1>Assessment & Feedback Form</h1>
+        <form id="assessmentForm">
+            <div id="candidateInfo">
+                <h2>Candidate Information</h2>
+                <div class="form-group">
+                    <label for="candidateName">Candidate Name</label>
+                    <input type="text" id="candidateName" name="candidateName" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobRole">Job Role</label>
+                    <select id="jobRole" name="jobRole" required>
+                        <option value="">Select Job Role</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="totalExperience">Total Experience (years)</label>
+                    <input type="number" id="totalExperience" name="totalExperience" min="0" step="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="cloudExperience">Total Experience in Cloud (years)</label>
+                    <input type="number" id="cloudExperience" name="cloudExperience" min="0" step="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="primaryCloud">Primary Cloud</label>
+                    <select id="primaryCloud" name="primaryCloud" required>
+                        <option value="">Select Primary Cloud</option>
+                        <option value="azure">Microsoft Azure</option>
+                        <option value="aws">AWS</option>
+                        <option value="gcp">GCP</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="technicalAssessment" class="hidden">
+                <h2>Technical Assessment</h2>
+                <div id="tabsList" class="tabs"></div>
+                <div id="tabContent"></div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="prevBtn" class="btn btn-secondary hidden">Previous</button>
+                <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
+                <button type="submit" id="submitBtn" class="btn btn-primary hidden">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+            function navigateTo(page) {
+        window.location.href = page;
+    }
+        const jobRoles = [
+            "Platform Engineering Engineer", "Platform Engineering Sr. Engineer", "Platform Engineering Lead",
+            "Platform Engineering Architect", "Platform Engineering Manager", "DevSecOps Engineer",
+            "DevSecOps Sr. Engineer", "DevSecOps Lead", "DevSecOps Architect", "DevSecOps Manager",
+            "Cloud Migration Engineer", "Cloud Migration Sr. Engineer", "Cloud Migration Lead",
+            "Cloud Migration Architect", "Cloud Migration Manager", "CloudOps Engineer",
+            "CloudOps Sr. Engineer", "CloudOps Lead", "CloudOps Architect", "CloudOps Manager"
+        ];
+
+        const technicalAreas = [
+            "Cloud Infrastructure", "Design & Architecture", "DevSecOps", "IaC", "Platform Engineering",
+            "Observability", "Exposure to Open-Source Tools", "Team Handling", "Root Cause Analysis",
+            "FinOps", "Overall Solution Approach"
+        ];
+
+        const form = document.getElementById('assessmentForm');
+        const candidateInfo = document.getElementById('candidateInfo');
+        const technicalAssessment = document.getElementById('technicalAssessment');
+        const tabsList = document.getElementById('tabsList');
+        const tabContent = document.getElementById('tabContent');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+
+        let currentStep = 0;
+        let currentTab = 0;
+
+        // Populate Job Roles
+        const jobRoleSelect = document.getElementById('jobRole');
+        jobRoles.forEach(role => {
+            const option = document.createElement('option');
+            option.value = role;
+            option.textContent = role;
+            jobRoleSelect.appendChild(option);
+        });
+
+        // Create tabs
+        technicalAreas.forEach((area, index) => {
+            const tab = document.createElement('button');
+            tab.type = 'button';
+            tab.textContent = area;
+            tab.className = 'tab';
+            tab.onclick = () => showTab(index);
+            tabsList.appendChild(tab);
+        });
+
+        function showTab(index) {
+            currentTab = index;
+            const tabs = tabsList.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+                if (i === index) {
+                    tabs[i].classList.add('active');
+                }
+            }
+            renderTabContent();
+        }
+
+        function renderTabContent() {
+            const area = technicalAreas[currentTab];
+            tabContent.innerHTML = `
+                <div class="form-group">
+                    <label for="${area}Rating">Rating</label>
+                    <select id="${area}Rating" name="${area}Rating" required>
+                        <option value="">Select Rating</option>
+                        ${[1, 2, 3, 4, 5].map(rating => `<option value="${rating}">${rating}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="${area}Feedback">Feedback</label>
+                    <textarea id="${area}Feedback" name="${area}Feedback" rows="3" required></textarea>
+                </div>
+            `;
+        }
+
+        function showStep(step) {
+            if (step === 0) {
+                candidateInfo.classList.remove('hidden');
+                technicalAssessment.classList.add('hidden');
+                prevBtn.classList.add('hidden');
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            } else {
+                candidateInfo.classList.add('hidden');
+                technicalAssessment.classList.remove('hidden');
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+                showTab(0);
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (validateCandidateInfo()) {
+                currentStep = 1;
+                showStep(currentStep);
+            } else {
+                alert('Please fill in all fields before proceeding.');
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentStep = 0;
+            showStep(currentStep);
+        });
+
+        function validateCandidateInfo() {
+            return form.candidateName.value &&
+                   form.jobRole.value &&
+                   form.totalExperience.value &&
+                   form.cloudExperience.value &&
+                   form.primaryCloud.value;
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateForm()) {
+                const formData = new FormData(form);
+                const data = {
+                    candidateInfo: {
+                        name: formData.get('candidateName'),
+                        jobRole: formData.get('jobRole'),
+                        totalExperience: formData.get('totalExperience'),
+                        cloudExperience: formData.get('cloudExperience'),
+                        primaryCloud: formData.get('primaryCloud')
+                    },
+                    technicalAssessment: {}
+                };
+                technicalAreas.forEach(area => {
+                    data.technicalAssessment[area] = {
+                        rating: formData.get(`${area}Rating`),
+                        feedback: formData.get(`${area}Feedback`)
+                    };
+                });
+                console.log('Form submitted:', data);
+                alert('Form submitted successfully!');
+            } else {
+                alert('Please fill in all fields before submitting.');
+            }
+        });
+
+        function validateForm() {
+            if (!validateCandidateInfo()) return false;
+            for (const area of technicalAreas) {
+                if (!form[`${area}Rating`].value || !form[`${area}Feedback`].value) return false;
+            }
+            return true;
+        }
+
+        showStep(currentStep);
+    </script>
+</body>
+</html>

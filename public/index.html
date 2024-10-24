@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online (L1) Imocha Exam Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;   
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background-color: black;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .main-heading {
+      text-align: center;
+      font-size: 2.5em;
+      color: #4a4a4a;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .summary {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+    }
+    .summary-item {
+      text-align: center;
+      padding: 1rem;
+      background: #000000;
+      color: #ffffff;
+      border-radius: 10px;
+      flex: 1;
+      margin: 0 10px;
+      border: 2px solid #808080;
+    }
+    .summary-item h2 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .summary-item p {
+      margin: 0.5rem 0 0;
+    }
+    .button {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #bb86fc;
+      color: #fff;
+      text-align: center;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .buttondownload {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #000000;
+      color: #fff;
+      text-align: center;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: 2px solid #808080;
+    }
+    .backbutton {
+      display: block;
+      width: 10px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #000000;
+      color: #fff;
+      text-align: center;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left: -10px;
+    }
+    .button:hover {
+      background: #11998e;
+    }
+    .details {
+      display: none;
+      transition: all 0.5s;
+    }
+    .details.active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid #fff; /* Add white border here */
+      color: #fff;
+    }
+    th {
+      background: #6a11cb;
+      color: #fff;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+    .popup-content input {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .popup-content button {
+      padding: 10px 20px;
+      background: #bb86fc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .popup-content button:hover {
+      background: #11998e;
+    }
+    @media (max-width: 768px) {
+      .summary {
+        flex-direction: column;
+      }
+      .summary-item {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 style="
+      margin-left: 263px;
+      color: #bb86fc;
+      margin-bottom: -67px;
+    ">Online (L1) Imocha Exam Dashboard</h1>
+    <div class="backbutton" onclick="navigateToPage()">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <h1 class="main-heading" style="color:#bb86fc;"></h1>
+
+    <div class="summary">
+      <div class="summary-item" id="attempted"><h2>0</h2><p>Attempted</p></div>
+      <div class="summary-item" id="passed"><h2>0</h2><p>Passed</p></div>
+      <div class="summary-item" id="failed"><h2>0</h2><p>Failed</p></div>
+      <div class="summary-item" id="improvement"><h2>0</h2><p>Need Improvement</p></div>
+    </div>
+    <button onclick="downloadExcel()" style="
+      background-color: #bb86fc;
+      margin-left: 45%;
+      border: black;">Download as Excel</button>
+
+    <div class="details" id="details">
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Role</th>
+            <th>Download PDF Report</th>
+            <th>Send Email</th> <!-- New column for sending email -->
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="popup" id="emailPopup">
+    <div class="popup-content">
+      <h2>Send Email</h2>
+      <input type="email" id="emailInput" placeholder="Enter recipient email" required>
+      <button id="sendEmailButton" onclick="sendEmail()">Send</button>
+      <button onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  
+  <script>
+    let currentRowData = null; // Store the data of the current row
+async function fetchTestResults() {
+  try {
+    const response = await fetch('http://localhost:3000/api/test-results');
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const reports = await response.json();
+
+    let passed = 0, failed = 0, improvement = 0;
+
+    reports.forEach(report => {
+      const performance = report.performanceCategory ? report.performanceCategory.toLowerCase() : 'unknown';
+
+      if (performance === 'expert') {
+        passed++;
+      } else if (performance === 'failed') {
+        failed++;
+      } else if (performance === 'need improvements') {
+        improvement++;
+      }
+    });
+
+    const attempted = reports.length;
+
+    document.getElementById('attempted').children[0].textContent = reports.length;
+    document.getElementById('passed').children[0].textContent = passed;
+    document.getElementById('failed').children[0].textContent = failed;
+    document.getElementById('improvement').children[0].textContent = improvement;
+
+    // Save reports to the database
+    await saveReportsToDatabase(reports);
+
+    await fetch('http://localhost:3000/update-resumescount', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        attempted: attempted,
+        improvement: improvement
+      })
+    });
+
+    // Append table rows with conditional styling for the Status column
+    document.getElementById('resultTable').querySelector('tbody').innerHTML = reports.map(report => {
+      let statusClass = '';
+      if (report.performanceCategory === 'expert') {
+        statusClass = 'passed';
+      } else if (report.performanceCategory === 'failed') {
+        statusClass = 'failed';
+      } else if (report.performanceCategory === 'need improvements') {
+        statusClass = 'improvement';
+      }
+
+      return `
+        <tr>
+          <td>${report.candidateEmail}</td>
+          <td>${report.score || 'N/A'}/${report.totalTestPoints || 'N/A'} (${report.scorePercentage || 'N/A'}%)</td>
+          <td class="${statusClass}">${report.performanceCategory}</td>
+          <td>${report.testName}</td>
+          <td><a href="${report.pdfReportUrl}" target="_blank" class="buttondownload">Download</a></td>
+          <td><button onclick="openPopup('${report.candidateEmail}', '${report.score}', '${report.performanceCategory}', '${report.testName}','${report.pdfReportUrl}' )">Send Email</button></td>
+        </tr>
+      `;
+    }).join('');
+    
+    // Show the details section
+    document.getElementById('details').classList.add('active');
+  } catch (error) {
+    console.error('Error fetching test results:', error);
+  }
+}
+
+// Function to save reports to the database
+async function saveReportsToDatabase(reports) {
+  try {
+    const response = await fetch('http://localhost:3000/save-imocha-results', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ reports })
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to save reports to database');
+    }
+
+    console.log('Reports saved successfully');
+  } catch (error) {
+    console.error('Error saving reports:', error);
+  }
+}
+
+	
+
+    function openPopup(candidateEmail, score, performanceCategory, testName,pdfReportUrl) {
+      currentRowData = { candidateEmail, score, performanceCategory, testName,pdfReportUrl }; // Store row data
+      document.getElementById('emailPopup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('emailPopup').style.display = 'none';
+      document.getElementById('emailInput').value = ''; // Clear the input
+    }
+
+    async function sendEmail() {
+      const email = document.getElementById('emailInput').value;
+
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:3000/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            recipient: email,
+            data: currentRowData // Pass the row data
+          })
+        });
+
+        if (response.ok) {
+          alert("Email sent successfully!");
+          closePopup();
+        } else {
+          alert("Failed to send email.");
+        }
+      } catch (error) {
+        console.error('Error sending email:', error);
+      }
+    }
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    function navigateToPage() {
+      window.location.href = 'Reports.html';
+    }
+
+    function downloadExcel() {
+      const table = document.getElementById('resultTable');
+      const wb = XLSX.utils.table_to_book(table, { sheet: "Results" });
+      XLSX.writeFile(wb, 'TestResults.xlsx');
+    }
+
+    window.onload = function() {
+      fetchTestResults();
+    };
+
+  </script>
+</body>
+</html>

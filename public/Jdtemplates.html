@@ -1,0 +1,124 @@
+<html>
+<head>
+<link href="tag.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<div class="sidebar-menu">
+<h2 style="
+    margin-left: 53px;" >Menu</h2>
+	
+	  <div class="sidebar-option active" data-target="dashboard" data-tooltip="Dashboard" onclick="navigateTo('Reports.html')" >
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard
+                   
+                         </span>
+                </div>
+				  <div class="sidebar-option" data-target="interviews" data-tooltip="Interviews" onclick="navigateTo('pre-screening2.html')">
+                    <i class="fas fa-users"></i>
+                    <span>Pre-Screening</span>
+                </div>
+				 <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('ResumeVerify.html')"  >
+               <i class="fas fa-tasks"></i><span>Graduate-Trainees
+                    
+                 
+
+                    </span>
+            </div>
+				 <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('index.html')"  >
+               <i class="fas fa-tasks"></i><span>Imocha Results
+                    
+                 
+
+
+                    </span>
+            </div>
+               
+                
+               
+              
+                <div class="sidebar-option" data-target="jd-templates" data-tooltip="JD Templates" onclick="navigateTo('Jdtemplates.html')"  >
+                    <i class="fas fa-file-alt"></i>
+                    <span>JD Templates
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+                </div>
+               
+               
+                
+              
+              
+               <div class="sidebar-option" data-target="candidateInfo" data-tooltip="candidateInfo" onclick="navigateTo('assessment-form-html.html')"  >
+               <i class="fas fa-tasks"></i><span>Assessment
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+               
+
+               
+          
+            <div id="technical-panel-option" class="sidebar-option" data-target="technical-panel" data-tooltip="Technical Panel"  onclick="navigateTo('Technicalpanel.html')"  >
+                <i class="fas fa-laptop-code"></i>
+                <span>Technical Panel
+                    
+                    <div class="chip primary">
+                    Coming Soon
+                </div>
+
+
+                    </span>
+            </div>
+            <div class="sidebar-option logout-option" data-tooltip="Logout" onclick="navigateTo('login.html')">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+            </div>
+
+
+        </div>
+
+  
+
+<div id="jd-templates"  style="
+    margin-top: -446px;">
+                <h2 style="
+    margin-left: 289px;">JD Templates</h2>
+                <div class="job-card-container">
+                    <div class="job-card">
+                        <h3>DevOps Engineer</h3>
+                        <p>DevOps engineers work on streamlining development and operations processes. They implement continuous integration and delivery pipelines, automate infrastructure provisioning, and manage containerization and orchestration tools like Docker and Kubernetes.</p>
+                        <button class="view-jd-btn" data-job="DevOps">View JD</button>
+                    </div>
+                    <div class="job-card">
+                        <h3>Platform Engineer</h3>
+                        <p>Platform engineers design and maintain the infrastructure and tools that support software development teams. They create scalable, reliable platforms that enable developers to build, test, and deploy applications efficiently.</p>
+                        <button class="view-jd-btn" data-job="Platform Engineering">View JD</button>
+                    </div>
+                    <div class="job-card">
+                        <h3>Migration Engineer</h3>
+                        <p>Migration specialists focus on transitioning systems and data between environments. They plan and execute complex migrations to cloud platforms, ensuring data integrity, minimal downtime, and seamless integration with existing systems.</p>
+                        <button class="view-jd-btn" data-job="Migration">View JD</button>
+                    </div>
+                    <div class="job-card">
+                        <h3>Cloud Ops Engineer</h3>
+                        <p>CloudOps professionals manage and optimize cloud-based systems and services. They ensure high availability, performance, and security of cloud infrastructure, implement cost optimization strategies, and manage multi-cloud environments.</p>
+                        <button class="view-jd-btn" data-job="CloudOps">View JD</button>
+                    </div>
+                </div>
+            </div>
+<script>
+
+function navigateTo(page) {
+        window.location.href = page;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+<link href="tag.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+ 
+<div id="login-container">
+       <h1 style="text-align: center;">Welcome To Engineering Center's Recruitment Portal</h1>
+
+        <form id="login-form">
+            <select id="team-select" required="" style="width:270px; text-align: center; margin-inline: auto;">
+                <option value="">Select Your Team</option>
+                <option value="tag">TAG Team</option>
+                <option value="cloud">Cloud Engineering Team</option>
+				<!-- <option value="app">App Engineering Team</option>
+				<option value="data">Data Engineering Team</option> -->
+            
+               
+            </select>
+            <input type="text" id="username" placeholder="Username" required style="width: 268px;;  text-align: center; margin-inline: auto;">
+            <input type="password" id="password" placeholder="Password" required style="width: 268px;; text-align: center; margin-inline: auto;">
+            <button type="submit" style="
+    width: 53%;">Login</button>
+        </form>
+    </div>
+
+<script>
+ const loginForm = document.getElementById('login-form');
+        const loginContainer = document.getElementById('login-container');
+        const portalContainer = document.getElementById('portal-container');
+        const sidebarOptions = document.querySelectorAll('.sidebar-option');
+        const contentSections = document.querySelectorAll('#content > div');
+        const reportsOption = document.getElementById('reports-option');
+    const technicalPanelOption = document.getElementById('technical-panel-option');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+             const team = document.getElementById('team-select').value;
+
+             const technicalPanelOption = document.getElementById('technical-panel-option');
+             const reportsOption = document.getElementById('reports-option');
+
+
+
+            if (username === 'admin' && password === 'admin') {
+window.location.href = 'Reports.html';
+             
+                loginContainer.style.display = 'none';
+               portalContainer.style.setProperty('display','flex','important');
+if (team === 'cloud' || team === 'app' || team === 'data') {
+                technicalPanelOption.style.display = 'none';
+                reportsOption.style.display = 'none';
+            }
+   
+
+ 
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        });
+  
+</script>
+</body>
+</html>
