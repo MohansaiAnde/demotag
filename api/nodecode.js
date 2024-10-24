@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // CORS configuration
 const corsOptions = {
   origin: 'https://demotag.vercel.app', // Your Vercel frontend domain
-  methods: 'GET, POST, OPTIONS', // Allow specific HTTP methods
+  methods: 'GET, POST, PUT, OPTIONS', // Allow specific HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
   credentials: true // Enable cookies/sessions if needed
 };
