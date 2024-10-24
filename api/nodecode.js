@@ -11,8 +11,17 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// CORS configuration
+const corsOptions = {
+  origin: 'https://demotag.vercel.app', // Your Vercel frontend domain
+  methods: 'GET, POST, OPTIONS', // Allow specific HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+  credentials: true // Enable cookies/sessions if needed
+};
+
+app.use(cors(corsOptions)); // Apply CORS middleware
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // PostgreSQL connection string
