@@ -296,7 +296,7 @@ async function fetchTestResults() {
 // Function to save reports to the database
 async function saveReportsToDatabase(reports) {
   try {
-    const response = await fetch('http://localhost:3000/save-imocha-results', {
+    const response = await fetch('https://demotag.vercel.app/save-imocha-results', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
