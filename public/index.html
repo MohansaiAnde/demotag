@@ -252,7 +252,7 @@ async function fetchTestResults() {
     // Save reports to the database
     await saveReportsToDatabase(reports);
 
-    await fetch('http://localhost:3000/update-resumescount', {
+    await fetch('https://demotag.vercel.app/update-resumescount', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -335,7 +335,7 @@ async function saveReportsToDatabase(reports) {
       }
 
       try {
-        const response = await fetch('http://localhost:3000/send-email', {
+        const response = await fetch('https://demotag.vercel.app/send-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
